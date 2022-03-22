@@ -7,11 +7,10 @@ aux = [22, 23, 27, 18, 15, 14, 3, 2]
 
 GPIO.setup(leds, GPIO.OUT)
 GPIO.setup(aux, GPIO.IN)
-try:
-	while True:
-		for i in range (8):
-			GPIO.output(leds[i], GPIO.input(aux[i]))
-finally:
-	GPIO.output(leds, 0)
+while(True):
+    for i in range(8):
+        GPIO.output(leds[i], GPIO.input(aux[i]))
 
-	GPIO.cleanup()
+GPIO.output(leds, 0)
+
+GPIO.cleanup()
